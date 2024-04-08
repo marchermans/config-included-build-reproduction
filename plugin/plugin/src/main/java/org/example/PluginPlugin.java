@@ -3,8 +3,24 @@
  */
 package org.example;
 
+import org.apache.tools.ant.util.FileUtils;
+import org.gradle.api.DefaultTask;
+import org.gradle.api.JavaVersion;
 import org.gradle.api.Project;
 import org.gradle.api.Plugin;
+import org.gradle.api.artifacts.Configuration;
+import org.gradle.api.attributes.Category;
+import org.gradle.api.attributes.Usage;
+import org.gradle.api.attributes.java.TargetJvmVersion;
+import org.gradle.api.file.RegularFileProperty;
+import org.gradle.api.tasks.OutputFile;
+import org.gradle.api.tasks.TaskAction;
+import org.gradle.api.tasks.TaskProvider;
+import org.gradle.jvm.tasks.Jar;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * A simple 'hello world' plugin.
@@ -15,5 +31,11 @@ public class PluginPlugin implements Plugin<Project> {
         project.getTasks().register("greeting", task -> {
             task.doLast(s -> System.out.println("Hello from plugin 'org.example.greeting'"));
         });
+
+        // Register an extension
+        project.getExtensions().create("master", MasterExtension.class, project);
+        project.getExtensions().create("target", TargetExtension.class, project);
     }
+
+
 }

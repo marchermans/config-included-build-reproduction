@@ -1,2 +1,6 @@
+includeBuild('./plugin')
+includeBuild('./master')
+includeBuild('./target')
+
 rootProject.name = 'config-included-build-reproduction'
 

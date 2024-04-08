@@ -3,11 +3,37 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/master" name="master">
+                <projects>
+                  <project path="$PROJECT_DIR$/master" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/plugin" name="plugin">
+                <projects>
+                  <project path="$PROJECT_DIR$/plugin" />
+                  <project path="$PROJECT_DIR$/plugin/plugin" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/target" name="target">
+                <projects>
+                  <project path="$PROJECT_DIR$/target" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/master" />
+            <option value="$PROJECT_DIR$/plugin" />
+            <option value="$PROJECT_DIR$/plugin/plugin" />
+            <option value="$PROJECT_DIR$/target" />
           </set>
         </option>
       </GradleProjectSettings>
